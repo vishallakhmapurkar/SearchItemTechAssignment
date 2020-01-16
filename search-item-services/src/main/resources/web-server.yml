@@ -1,0 +1,26 @@
+# Spring properties
+spring:
+  application:
+    name: web-service  # Identify this application
+
+
+# Map the error path to error template (for Thymeleaf)
+error.path: /error
+
+# HTTP Server
+server.port: 3333   # HTTP (Tomcat) port
+
+# Discovery Server Access
+#  1. DEV ONLY: Reduce the lease renewal interval to speed up registration
+#  2. Define URL of registration server (defaultZone)
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+
+# Enable actuator access without security checks - DEVELOPEMENT ONLY
+# management.security.enabled: false   Spring Boot 1.5 property
+management.endpoints.web.exposure.include: '*'
+  
