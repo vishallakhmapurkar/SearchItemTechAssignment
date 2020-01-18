@@ -1,0 +1,42 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: copy"></head>
+
+<body>
+	<h1>Item Details</h1>
+	<div th:if="not searchItems" class="error">
+		No books found containing '<span th:text="${search}">text</span>'.
+		<div style="height: 2cm">&nbsp;</div>
+	</div>
+
+	<div th:if="${searchItems}">
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>kind</th>
+					<th>Title</th>
+					<th>Author/Artist</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="searchItem : ${searchItems}">
+					<td th:text="${searchItem.kind}">0</td>
+					<td th:text="${searchItem.title}">java</td>
+					<td th:text="${searchItem.authors_artists}">java</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div style="text-align: right">
+		Options: <a th:href="@{/}">Home</a> | <a
+			th:href="@{/searchitem}"> Again Search</a>
+	</div>
+
+	<div th:replace="footer :: copy"></div>
+</body>
+</html>

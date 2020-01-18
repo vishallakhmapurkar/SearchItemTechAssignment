@@ -1,0 +1,28 @@
+# Spring properties
+spring:
+  application:
+     name: books-service  # Service registers under this name
+  freemarker:
+    enabled: false           # Ignore Eureka dashboard FreeMarker templates
+  thymeleaf:
+    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
+    prefix: classpath:/search-items/templates/    # Trailing / mandatory
+                             # Template location for this application only
+
+
+# Map the error path to error template (for Thymeleaf)
+error.path: /error
+
+# HTTP Server
+server.port: 9989   # HTTP (Tomcat) port
+
+
+
+# Enable actuator access without security checks - DEVELOPEMENT ONLY
+# management.security.enabled: false   Spring Boot 1.5 property
+management.endpoints.web.exposure.include: '*'
+
+#this api is used fetch books based on search
+google.bookapiurl: https://www.googleapis.com/books/v1/volumes
+google.apikey: AIzaSyBwb2UQRAEkM2Q4SYQMIETN9ZBY0KYAkwo
+maxResults: 5

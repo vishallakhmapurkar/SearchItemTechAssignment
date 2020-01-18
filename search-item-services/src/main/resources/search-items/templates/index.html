@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="header :: copy"></head>
+
+<body>
+	<h1>Search Items Service Demo</h1>
+
+	<p>
+		Test JSON Response: <a href="/books?q=java&maxResults=5">books#/books?q=java&maxResults=5</a>.
+
+	
+	<li>SearchItem <a th:href="@{/searchitem}">Search Item</a></li>
+
+	<h3>Production ready URLs</h3>
+
+
+	<ul>
+		<li><a th:href="@{/actuator/beans}">The beans</a></li>
+		<li><a th:href="@{/actuator/env}">The environment</a></li>
+		<li><a th:href="@{/actuator/health}">Application health</a></li>
+		<li><a th:href="@{/actuator/mappings}">URL Mappings</a> -
+			including the /books mappings</li>
+		<li><a th:href="@{/actuator/metrics}">Application metrics</a> -
+			add any metric name to the end of this URL, for example <a
+			th:href="@{/actuator/metrics/http.server.requests}">/actuator/metrics/http.server.requests</a></li>
+		<li><a th:href="@{/actuator}">List of actuator endpoints</a></li>
+	</ul>
+
+	<div th:replace="footer :: copy"></div>
+
+</body>
+</html>
