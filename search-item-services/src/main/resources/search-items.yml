@@ -25,4 +25,7 @@ management.endpoints.web.exposure.include: '*'
 #this api is used fetch books based on search
 google.bookapiurl: https://www.googleapis.com/books/v1/volumes
 google.apikey: AIzaSyBwb2UQRAEkM2Q4SYQMIETN9ZBY0KYAkwo
+
+#Album search API 
+apple.albumsearchapiurl: https://api.music.apple.com/v1/me/library/albums
 maxResults: 5

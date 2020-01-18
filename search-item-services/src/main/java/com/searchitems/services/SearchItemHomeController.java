@@ -66,14 +66,18 @@ public class SearchItemHomeController {
 	public String goHome() {
 		return "index";
 	}
+
 	@RequestMapping("/books")
 	public ResponseEntity<GBWrapper> byNameAndMaxLimit(@RequestParam(value = "q") String q,
 			@RequestParam(value = "maxResults") Integer maxResults) {
-		String url = UriComponentsBuilder.fromHttpUrl(env.getProperty("google.bookapiurl"))
-				.queryParam("q", q).queryParam("maxResults", maxResults).queryParam("key", env.getProperty("google.apikey")).toUriString();
+		String url = UriComponentsBuilder.fromHttpUrl(env.getProperty("google.bookapiurl")).queryParam("q", q)
+				.queryParam("maxResults", maxResults).queryParam("key", env.getProperty("google.apikey")).toUriString();
 		RestTemplate restTemplate = new RestTemplate();
+		
+		logger.info("Response sent for books("+q+") search");
 		return restTemplate.getForEntity(url, GBWrapper.class);
 	}
+
 	private List<SearchItem> getSearchItems(GBWrapper res) {
 		List<SearchItem> books = new ArrayList<SearchItem>();
 
